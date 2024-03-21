@@ -1,23 +1,28 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import BirthPredictions from './BirthPredictions';
 const Details = ({ dateInfo }) => {
 
     function sumOfDigits(num) {
-        let sum = 0;
-        while (num > 0) {
-            sum += num % 10;
-            num = Math.floor(num / 10);
+        if(num===10){
+            return 1;
         }
-        if (sum > 9) {
-            return sumOfDigits(sum);
-        } else {
-            return sum;
+        // Function to calculate the sum of digits of a number
+        function digitSum(n) {
+            return n.toString().split('').reduce((acc, digit) => acc + parseInt(digit), 0);
         }
+    
+        // Keep summing digits until a single-digit number is obtained
+        while (num > 9) {
+            num = digitSum(num);
+        }
+    
+        return num;
     }
 
     let BirthNumber = sumOfDigits(dateInfo.day);
-    let DestinyNumber = sumOfDigits(sumOfDigits(dateInfo.day) + sumOfDigits(dateInfo.month) + sumOfDigits(dateInfo.year)) + 1;
+    let DestinyNumber = sumOfDigits(sumOfDigits(sumOfDigits(dateInfo.day) + sumOfDigits(dateInfo.month) + sumOfDigits(dateInfo.year))+1);
 
+    
     return (
         <div>
             <div>

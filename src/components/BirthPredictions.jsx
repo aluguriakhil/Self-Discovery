@@ -250,8 +250,8 @@ const BirthPredictions = ({ BirthNumber, DestinyNumber }) => {
     let number1 = DestinyNumber;
 
     //Cross checking values
-    // console.log(BirthNumber);
-    // console.log(DestinyNumber);
+    console.log(BirthNumber);
+    console.log(DestinyNumber);
 
     if (BirthNumber > 0) {
         return (
