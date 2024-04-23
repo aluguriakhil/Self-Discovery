@@ -1,5 +1,5 @@
 #root {
-    background-image: url('../Project/images/BG.jpg');
+    background-image: url('./images/BG.jpg');
     background-size: cover;
     background-repeat: repeat-y;
     padding: 0;
